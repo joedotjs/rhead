@@ -1,0 +1,138 @@
+@import 'reset';
+
+@mixin clearfix {
+  &:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  background: black;
+}
+
+#main {
+  @include clearfix;
+  & > div {
+    @include clearfix;
+  }
+}
+
+#album-list {
+  width: 25%;
+  height: 639px;
+  margin: 0;
+  background: black;
+  float: left;
+}
+
+.album {
+
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+
+  &.current {
+
+    h1 {
+      color: black;
+    }
+
+    .overlay {
+      background: rgba(255, 255, 255, 0.4);
+    }
+
+    &:hover {
+      .overlay {
+        background: rgba(255, 255, 255, 0.4);
+      }
+    }
+
+  }
+
+  h1 {
+    position: relative;
+    z-index: 2;
+    text-transform: uppercase;
+    color: white;
+    text-align: center;
+  }
+
+  img {
+    display: block;
+    position: absolute;
+    top: -100px;
+    left: 0;
+    width: 100%;
+  }
+
+  &:hover {
+    .overlay {
+      background: rgba(0, 0, 0, 0.4);
+    }
+  }
+
+}
+
+.overlay {
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+#right-section {
+  float: right;
+  background: black;
+  height: 639px;
+  width: 75%;
+  margin: 0;
+}
+
+#track-listing {
+
+  overflow: auto;
+  height: 520px;
+  position: relative;
+  background-size: cover;
+
+}
+
+.track {
+
+  $selectionBg: rgba(255, 255, 255, 0.7);
+
+  cursor: pointer;
+  padding: 20px;
+  border-top: 1px solid white;
+  color: white;
+  position: relative;
+  z-index: 2;
+  background: rgba(0, 0, 0, 0.7);
+  transition: background-color 0.2s ease-in;
+
+  &:hover, &.current {
+    background: $selectionBg;
+    color: black;
+  }
+
+  &:first-child {
+    border-top: none;
+  }
+
+  .track-number {
+    padding-right: 20px;
+  }
+
+}
+
+@import 'player';

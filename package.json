@@ -1,0 +1,27 @@
+{
+  "name": "rhead",
+  "version": "1.0.0",
+  "description": "Listen to em",
+  "main": "index.html",
+  "license": "MIT",
+  "window": {
+    "height": 650,
+    "width": 1275,
+    "resizable": false,
+    "toolbar": true
+  },
+  "dependencies": {
+    "bluebird": "^2.5.3",
+    "es6-promise": "^2.0.1",
+    "lodash": "^2.4.1",
+    "react": "^0.12.2"
+  },
+  "devDependencies": {
+    "browserify": "^8.0.2",
+    "gulp": "^3.8.10",
+    "gulp-sass": "^1.2.4",
+    "normalize.css": "^3.0.2",
+    "reactify": "^0.17.1",
+    "vinyl-source-stream": "^1.0.0"
+  }
+}

@@ -1,0 +1,458 @@
+{
+  "OK Computer": [
+    {
+      "id": 1,
+      "title": "Airbag",
+      "file": "01_Airbag.ogg"
+    },
+    {
+      "id": 2,
+      "title": "Paranoid Android",
+      "file": "02 Paranoid Android.ogg"
+    },
+    {
+      "id": 3,
+      "title": "Subterranean Homesick Alien",
+      "file": "03 Subterranean Homesick Alien.ogg"
+    },
+    {
+      "id": 4,
+      "title": "Exit Music (For A Film)",
+      "file": "04 Exit Music (For a Film).ogg"
+    },
+    {
+      "id": 5,
+      "title": "Let Down",
+      "file": "05 Let Down.ogg"
+    },
+    {
+      "id": 6,
+      "title": "Karma Police",
+      "file": "06 Karma Police.ogg"
+    },
+    {
+      "id": 7,
+      "title": "Fitter Happier",
+      "file": "07 Fitter Happier.ogg"
+    },
+    {
+      "id": 8,
+      "title": "Electioneering",
+      "file": "08 Electioneering.ogg"
+    },
+    {
+      "id": 9,
+      "title": "Climbing Up the Walls",
+      "file": "09 Climbing Up the Walls.ogg"
+    },
+    {
+      "id": 10,
+      "title": "No Surprises",
+      "file": "10 No Surprises.ogg"
+    },
+    {
+      "id": 11,
+      "title": "Lucky",
+      "file": "11 Lucky.ogg"
+    },
+    {
+      "id": 12,
+      "title": "The Tourist",
+      "file": "12 The Tourist.ogg"
+    }
+  ],
+  "Kid A": [
+    {
+      "id": 13,
+      "title": "Everything In Its Right Place",
+      "file": "01 Everything In Its Right Place.ogg"
+    },
+    {
+      "id": 14,
+      "title": "Kid A",
+      "file": "02 Kid A.ogg"
+    },
+    {
+      "id": 15,
+      "title": "The National Anthem",
+      "file": "03 The National Anthem.ogg"
+    },
+    {
+      "id": 16,
+      "title": "How to Disappear Completely (And Never Be Found Again)",
+      "file": "04 How to Disappear Completely (And Never Be Found Again).ogg"
+    },
+    {
+      "id": 17,
+      "title": "Treefingers",
+      "file": "05 Treefingers.ogg"
+    },
+    {
+      "id": 18,
+      "title": "Optimistic",
+      "file": "06 Optimistic.ogg"
+    },
+    {
+      "id": 19,
+      "title": "In Limbo",
+      "file": "07 In Limbo.ogg"
+    },
+    {
+      "id": 20,
+      "title": "Idioteque",
+      "file": "08 Idioteque.ogg"
+    },
+    {
+      "id": 21,
+      "title": "Morning Bell",
+      "file": "09 Morning Bell.ogg"
+    },
+    {
+      "id": 22,
+      "title": "Motion Picture Soundtrack",
+      "file": "10 Motion Picture Soundtrack.ogg"
+    }
+  ],
+  "In Rainbows": [
+    {
+      "id": 23,
+      "title": "15 Step",
+      "file": "1-01 15 Step.ogg"
+    },
+    {
+      "id": 24,
+      "title": "Bodysnatchers",
+      "file": "1-02 Bodysnatchers.ogg"
+    },
+    {
+      "id": 25,
+      "title": "Nude",
+      "file": "1-03 Nude.ogg"
+    },
+    {
+      "id": 26,
+      "title": "Weird Fishes/Arpeggi",
+      "file": "1-04 Weird Fishes_Arpeggi.ogg"
+    },
+    {
+      "id": 27,
+      "title": "All I Need",
+      "file": "1-05 All I Need.ogg"
+    },
+    {
+      "id": 28,
+      "title": "Faust Arp",
+      "file": "1-06 Faust Arp.ogg"
+    },
+    {
+      "id": 29,
+      "title": "Reckoner",
+      "file": "1-07 Reckoner.ogg"
+    },
+    {
+      "id": 30,
+      "title": "House of Cards",
+      "file": "1-08 House Of Cards.ogg"
+    },
+    {
+      "id": 31,
+      "title": "Jigsaw Falling Into Place",
+      "file": "1-09 Jigsaw Falling Into Place.ogg"
+    },
+    {
+      "id": 32,
+      "title": "Videotape",
+      "file": "1-10 Videotape.ogg"
+    }
+  ],
+  "Hail to the Thief": [
+    {
+      "id": 33,
+      "title": "2 + 2 = 5 (The Lukewarm.)",
+      "file": "01 2 + 2 = 5 (The Lukewarm.).ogg"
+    },
+    {
+      "id": 34,
+      "title": "Sit Down. Stand up. (Snakes & Ladders.)",
+      "file": "02 Sit Down. Stand up. (Snakes & Ladders.).ogg"
+    },
+    {
+      "id": 35,
+      "title": "Sail to the Moon. (Brush the Cobwebs Out of the Sky.)",
+      "file": "03 Sail to the Moon. (Brush the Cobwebs Out of the Sky.).ogg"
+    },
+    {
+      "id": 36,
+      "title": "Backdrifts. (Honeymoon is Over.)",
+      "file": "04 Backdrifts. (Honeymoon is Over.).ogg"
+    },
+    {
+      "id": 37,
+      "title": "Go to Sleep. (Little Man Being Erased.)",
+      "file": "05 Go to Sleep. (Little Man Being Erased.).ogg"
+    },
+    {
+      "id": 38,
+      "title": "Where I End and You Begin. (The Sky is Falling in.)",
+      "file": "06 Where I End and You Begin. (The Sky is Falling in.).ogg"
+    },
+    {
+      "id": 39,
+      "title": "We Suck Young Blood. (Your Time is up.)",
+      "file": "07 We Suck Young Blood. (Your Time is up.).ogg"
+    },
+    {
+      "id": 40,
+      "title": "The Gloaming. (Softly Open Our Mouths in the Cold.)",
+      "file": "08 The Gloaming. (Softly Open Our Mouths in the Cold.).ogg"
+    },
+    {
+      "id": 41,
+      "title": "There There. (The Boney King of Nowhere.)",
+      "file": "09 There There. (The Boney King of Nowhere.).ogg"
+    },
+    {
+      "id": 42,
+      "title": "A Punchup at a Wedding. (No no no no no no no no.)",
+      "file": "11 A Punchup at a Wedding. (No no no no no no no no.).ogg"
+    },
+    {
+      "id": 43,
+      "title": "Myxomatosis. (Judge, Jury & Executioner.)",
+      "file": "12 Myxomatosis. (Judge, Jury & Executioner.).ogg"
+    },
+    {
+      "id": 44,
+      "title": "Scatterbrain. (As Dead as Leaves.)",
+      "file": "13 Scatterbrain. (As Dead as Leaves.).ogg"
+    },
+    {
+      "id": 45,
+      "title": "A Wolf at the Door. (It Girl. Rag Doll.)",
+      "file": "14 A Wolf at the Door. (It Girl. Rag Doll.).ogg"
+    }
+  ],
+  "Amnesiac": [
+    {
+      "id": 46,
+      "title": "Packt Like Sardines in a Crushd Tin Box",
+      "file": "01 Packt Like Sardines in a Crushd Tin Box.ogg"
+    },
+    {
+      "id": 47,
+      "title": "Pyramid Song",
+      "file": "02 Pyramid Song.ogg"
+    },
+    {
+      "id": 48,
+      "title": "Pulk/Pull Revolving Doors",
+      "file": "03 Pulk_Pull Revolving Doors.ogg"
+    },
+    {
+      "id": 49,
+      "title": "You and Whose Army?",
+      "file": "04 You and Whose Army_.ogg"
+    },
+    {
+      "id": 50,
+      "title": "I Might Be Wrong",
+      "file": "05 I Might Be Wrong.ogg"
+    },
+    {
+      "id": 51,
+      "title": "Knives Out",
+      "file": "06 Knives Out.ogg"
+    },
+    {
+      "id": 52,
+      "title": "Morning Bell (Amnesiac)",
+      "file": "07 Morning Bell (Amnesiac).ogg"
+    },
+    {
+      "id": 53,
+      "title": "Dollars & Cents",
+      "file": "08 Dollars & Cents.ogg"
+    },
+    {
+      "id": 54,
+      "title": "Hunting Bears",
+      "file": "09 Hunting Bears.ogg"
+    },
+    {
+      "id": 55,
+      "title": "Like Spinning Plates",
+      "file": "10 Like Spinning Plates.ogg"
+    },
+    {
+      "id": 56,
+      "title": "Life In a Glass House",
+      "file": "11 Life In a Glass House.ogg"
+    }
+  ],
+  "Pablo Honey": [
+    {
+      "id": 69,
+      "title": "You",
+      "file": "01 You.ogg"
+    },
+    {
+      "id": 70,
+      "title": "Creep",
+      "file": "02 Creep.ogg"
+    },
+    {
+      "id": 71,
+      "title": "How Do You?",
+      "file": "03 How Do You_.ogg"
+    },
+    {
+      "id": 72,
+      "title": "Stop Whispering",
+      "file": "04 Stop Whispering.ogg"
+    },
+    {
+      "id": 73,
+      "title": "Thinking About You",
+      "file": "05 Thinking About You.ogg"
+    },
+    {
+      "id": 74,
+      "title": "Anyone Can Play Guitar",
+      "file": "06 Anyone Can Play Guitar.ogg"
+    },
+    {
+      "id": 75,
+      "title": "Ripcord",
+      "file": "07 Ripcord.ogg"
+    },
+    {
+      "id": 76,
+      "title": "Vegetable",
+      "file": "08 Vegetable.ogg"
+    },
+    {
+      "id": 77,
+      "title": "Prove Yourself",
+      "file": "09 Prove Yourself.ogg"
+    },
+    {
+      "id": 78,
+      "title": "I Can't",
+      "file": "10 I Can't.ogg"
+    },
+    {
+      "id": 79,
+      "title": "Lurgee",
+      "file": "11 Lurgee.ogg"
+    },
+    {
+      "id": 80,
+      "title": "Blow Out",
+      "file": "12 Blow Out.ogg"
+    }
+  ],
+  "The Bends": [
+    {
+      "id": 57,
+      "title": "Planet Telex",
+      "file": "01 Planet Telex.ogg"
+    },
+    {
+      "id": 58,
+      "title": "The Bends",
+      "file": "02 The Bends.ogg"
+    },
+    {
+      "id": 59,
+      "title": "High and Dry",
+      "file": "03 High and Dry.ogg"
+    },
+    {
+      "id": 60,
+      "title": "Fake Plastic Trees",
+      "file": "04 Fake Plastic Trees.ogg"
+    },
+    {
+      "id": 61,
+      "title": "Bones",
+      "file": "05 Bones.ogg"
+    },
+    {
+      "id": 62,
+      "title": "(Nice Dream)",
+      "file": "06 (Nice Dream).ogg"
+    },
+    {
+      "id": 63,
+      "title": "Just",
+      "file": "07 Just.ogg"
+    },
+    {
+      "id": 64,
+      "title": "My Iron Lung",
+      "file": "08 My Iron Lung.ogg"
+    },
+    {
+      "id": 65,
+      "title": "Bullet Proof...I Wish I Was",
+      "file": "09 Bullet Proof...I Wish I Was.ogg"
+    },
+    {
+      "id": 66,
+      "title": "Black Star",
+      "file": "10 Black Star.ogg"
+    },
+    {
+      "id": 67,
+      "title": "Sulk",
+      "file": "11 Sulk.ogg"
+    },
+    {
+      "id": 68,
+      "title": "Street Spirit (Fade Out)",
+      "file": "12 Street Spirit (Fade Out).ogg"
+    }
+  ],
+  "The King of Limbs": [
+    {
+      "id": 81,
+      "title": "Bloom",
+      "file": "01 Bloom.ogg"
+    },
+    {
+      "id": 82,
+      "title": "Morning Mr. Magpie",
+      "file": "02 Morning Mr Magpie.ogg"
+    },
+    {
+      "id": 83,
+      "title": "Little by Little",
+      "file": "03 Little by Little.ogg"
+    },
+    {
+      "id": 84,
+      "title": "Feral",
+      "file": "04 Feral.ogg"
+    },
+    {
+      "id": 85,
+      "title": "Lotus Flower",
+      "file": "05 Lotus Flower.ogg"
+    },
+    {
+      "id": 86,
+      "title": "Codex",
+      "file": "06 Codex.ogg"
+    },
+    {
+      "id": 87,
+      "title": "Give Up the Ghost",
+      "file": "07 Give up the Ghost.ogg"
+    },
+    {
+      "id": 88,
+      "title": "Separator",
+      "file": "08 Separator.ogg"
+    }
+  ]
+}

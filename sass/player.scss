@@ -1,0 +1,36 @@
+#player {
+
+  height: 119px;
+  background: black;
+  color: white;
+  position: relative;
+  text-align: center;
+
+  i {
+    display: inline;
+    font-size: 32px;
+    cursor: pointer;
+    padding: 0 20px;
+    transition: color 0.2s ease-out;
+    &:hover {
+      color: darken(white, 40%);
+    }
+    &:first-child {
+      padding-left: 0;
+    }
+    &:last-child {
+      padding-right: 0;
+    }
+  }
+
+  #shuffle-button {
+    &.shuffle-on {
+      color: #00da00;
+    }
+  }
+
+  audio {
+    display: none;
+  }
+
+}
