@@ -11,7 +11,6 @@ var listenMixin = StoreListenMixin(
     [TracksStore, AlbumStore],
     function () {
         return {
-            tracksLoading: TracksStore.tracksAreLoading(),
             tracks: TracksStore.getTracks(),
             currentTrack: TracksStore.getCurrentTrack(),
             currentAlbum: AlbumStore.getSelectedAlbum()
@@ -41,23 +40,11 @@ module.exports = React.createClass({
     },
 
     render: function () {
-
-        if (this.state.tracksLoading) {
-            return (
-                <div id="track-listing">
-                    <span>Loading</span>
-                </div>
-            );
-        }
-
-        var tracks = this.state.tracks.map(this.formTrack);
-
         return (
             <div id="track-listing" style={{ backgroundImage: this.getAlbumImage() }}>
-                {tracks}
+                {this.state.tracks.map(this.formTrack)}
             </div>
         );
-
     }
 
 });

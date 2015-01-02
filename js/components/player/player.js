@@ -52,8 +52,6 @@ module.exports = React.createClass({
 
         var songFile = this.state.song ? 'songfiles/' + this.state.song.file : '';
 
-        console.log(this.state.shuffle);
-
         return (
             <div id="player" style={{ display: this.state.song ? 'block' : 'none' }}>
                 <TrackInfo track={this.state.song} />

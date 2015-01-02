@@ -1,7 +1,7 @@
 var React = require('react');
 var AlbumList = require('./albums/album-list');
 var TrackListing = require('./tracks/track-listing');
-var Player = require('./player/player');
+var Player = require('./player/Player');
 var PlayerActions = require('../actions/player-actions');
 
 module.exports = React.createClass({

@@ -4,6 +4,8 @@ var merge = require('react/lib/merge');
 var BaseStore = require('./base-store');
 var _ = require('lodash');
 
+var TracksActions = require('../actions/tracks-actions');
+
 var albums = [
     {id: 1, title: 'Kid A', image: 'http://upload.wikimedia.org/wikipedia/en/b/b5/Radiohead.kida.albumart.jpg'},
     {id: 2, title: 'OK Computer', image: 'http://cdn.albumoftheyear.org/album/ok-computer.jpg'},
@@ -36,6 +38,7 @@ var AlbumStore = merge(BaseStore, {
 
             case AppConstants.SET_ALBUM:
                 selectedAlbum = action.album.id;
+                TracksActions.setTracks(action.album);
                 break;
 
             default:

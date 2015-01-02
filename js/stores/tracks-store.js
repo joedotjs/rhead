@@ -5,10 +5,10 @@ var BaseStore = require('./base-store');
 var _ = require('lodash');
 
 var PlayerActions = require('../actions/player-actions');
+var PlayerStore = require('../stores/player-store');
 
 var currentTracks = [];
 var currentPlayingTrack = null;
-var tracksLoading = false;
 
 function getCurrentTrackIndex() {
     return _.findIndex(currentTracks, function (track) {
@@ -30,18 +30,22 @@ function getRandomTrack() {
     return currentTracks[Math.floor(Math.random() * currentTracks.length)];
 }
 
+function setTrackPossiblyRandom(track) {
+    if (!PlayerStore.getShuffleState()) {
+        currentPlayingTrack = track;
+    } else {
+        currentPlayingTrack = getRandomTrack();
+    }
+}
+
 var TracksStore = merge(BaseStore, {
 
     getTracks: function () {
-      return currentTracks;
+        return currentTracks;
     },
 
     getCurrentTrack: function () {
-      return currentPlayingTrack;
-    },
-
-    tracksAreLoading: function () {
-      return tracksLoading;
+        return currentPlayingTrack;
     },
 
     dispatcherIndex: AppDispatcher.register(function (payload) {
@@ -51,16 +55,10 @@ var TracksStore = merge(BaseStore, {
 
         switch (action.actionType) {
 
-            case AppConstants.LOADING_TRACKS:
-                currentTracks = null;
-                currentPlayingTrack = null;
-                tracksLoading = true;
-                PlayerActions.pauseSong();
-                break;
-
             case AppConstants.SET_TRACKS:
-                tracksLoading = false;
                 currentTracks = action.tracks;
+                setTrackPossiblyRandom(currentTracks[0]);
+                PlayerActions.playSong();
                 break;
 
             case AppConstants.SET_CURRENT_TRACK:
