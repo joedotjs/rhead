@@ -24,11 +24,7 @@ module.exports = React.createClass({
     mixins: [storeMixin],
 
     setNewTrack: function () {
-      if (this.state.shuffle) {
-          TracksActions.setCurrentTrackRandom();
-      } else {
-          TracksActions.setCurrentTrackNext();
-      }
+        TracksActions.setCurrentTrackNext();
     },
 
     componentDidMount: function () {

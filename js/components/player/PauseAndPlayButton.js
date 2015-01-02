@@ -4,11 +4,9 @@ var cx = React.addons.classSet;
 
 module.exports = React.createClass({
     handleClick: function () {
-        if (this.props.playing) {
-            PlayerActions.pauseSong();
-        } else {
-            PlayerActions.playSong();
-        }
+        this.props.playing
+            ? PlayerActions.pauseSong()
+            : PlayerActions.playSong();
     },
     getClassName: function () {
         return cx({

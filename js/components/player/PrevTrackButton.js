@@ -4,11 +4,7 @@ var TrackActions = require('../../actions/tracks-actions');
 
 module.exports = React.createClass({
     handleClick: function () {
-        if (!this.props.shuffle) {
-            TrackActions.setCurrentTrackPrev();
-        } else {
-            TrackActions.setCurrentTrackRandom();
-        }
+        TrackActions.setCurrentTrackPrev();
     },
     render: function () {
         return (

@@ -33,6 +33,13 @@ function getOnlyUnplayedTracks() {
     });
 }
 
+function getPreviousRandomTrack() {
+    if (alreadyShuffledTracks.length < 2) return null;
+    alreadyShuffledTracks.pop();
+    var lastTrackId = _.last(alreadyShuffledTracks);
+    return _.find(currentTracks, { id: lastTrackId });
+}
+
 function getRandomTrack() {
 
     var unplayedTracks = getOnlyUnplayedTracks();
@@ -45,6 +52,20 @@ function getRandomTrack() {
 
     return randomTrack;
 
+}
+
+function setPlayingTrackTo(track) {
+    if (track) {
+        currentPlayingTrack = track;
+        PlayerActions.playSong();
+    } else {
+        currentPlayingTrack = null;
+        PlayerActions.pauseSong();
+    }
+}
+
+function resetShuffledSongs() {
+    alreadyShuffledTracks = [];
 }
 
 var TracksStore = merge(BaseStore, {
@@ -67,66 +88,44 @@ var TracksStore = merge(BaseStore, {
             case AppConstants.SET_TRACKS:
 
                 currentTracks = action.tracks;
-                alreadyShuffledTracks = [];
+                resetShuffledSongs();
 
                 if (PlayerStore.getShuffleState()) {
-                    currentPlayingTrack = getRandomTrack();
+                    setPlayingTrackTo(getRandomTrack());
                 } else {
-                    currentPlayingTrack = currentTracks[0];
+                    setPlayingTrackTo(currentTracks[0]);
                 }
-
-                PlayerActions.playSong();
 
                 break;
 
             case AppConstants.SET_CURRENT_TRACK:
-                alreadyShuffledTracks = [];
-                currentPlayingTrack = action.track;
-                PlayerActions.playSong();
+                resetShuffledSongs();
+                setPlayingTrackTo(action.track);
+                break;
+
+            case AppConstants.SET_CURRENT_TRACK_RANDOM:
+                setPlayingTrackTo(getRandomTrack());
                 break;
 
             case AppConstants.SET_CURRENT_TRACK_NEXT:
 
-                alreadyShuffledTracks = [];
-
-                var nextTrack = getNextTrack();
-
-                if (nextTrack) {
-                    currentPlayingTrack = nextTrack;
-                    PlayerActions.playSong();
+                if (!PlayerStore.getShuffleState()) {
+                    resetShuffledSongs();
+                    setPlayingTrackTo(getNextTrack());
                 } else {
-                    currentPlayingTrack = null;
-                    PlayerActions.pauseSong();
+                    setPlayingTrackTo(getRandomTrack());
                 }
 
                 break;
 
             case AppConstants.SET_CURRENT_TRACK_PREV:
 
-                alreadyShuffledTracks = [];
-
-                var prevTrack = getPreviousTrack();
-
-                if (prevTrack) {
-                    currentPlayingTrack = prevTrack;
-                    PlayerActions.playSong();
+                if (!PlayerStore.getShuffleState()) {
+                    resetShuffledSongs();
+                    setPlayingTrackTo(getPreviousTrack());
                 } else {
-                    currentPlayingTrack = null;
-                    PlayerActions.pauseSong();
-                }
-
-                break;
-
-            case AppConstants.SET_CURRENT_TRACK_RANDOM:
-
-                var randomTrack = getRandomTrack();
-
-                if (randomTrack) {
-                    currentPlayingTrack = randomTrack;
-                    PlayerActions.playSong();
-                } else {
-                    currentPlayingTrack = null;
-                    PlayerActions.pauseSong();
+                    var previousRandomTrack = getPreviousRandomTrack();
+                    if (previousRandomTrack) setPlayingTrackTo(previousRandomTrack);
                 }
 
                 break;
@@ -134,8 +133,6 @@ var TracksStore = merge(BaseStore, {
             default:
                 changed = false;
                 break;
-
-
         }
 
         if (changed) TracksStore.emitChange();

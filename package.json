@@ -5,7 +5,7 @@
   "main": "index.html",
   "license": "MIT",
   "window": {
-    "height": 650,
+    "height": 660,
     "width": 1275,
     "resizable": false,
     "toolbar": true
