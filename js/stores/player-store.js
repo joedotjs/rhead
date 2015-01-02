@@ -3,6 +3,8 @@ var AppConstants = require('../constants/app-constants');
 var merge = require('react/lib/merge');
 var BaseStore = require('./base-store');
 
+var TracksActions = require('../actions/tracks-actions');
+
 var playing = false;
 var shuffle = false;
 
@@ -37,6 +39,7 @@ var PlayerStore = merge(BaseStore, {
 
             case AppConstants.SET_SHUFFLE:
                 shuffle = action.onState;
+                if (shuffle) TracksActions.setCurrentTrackRandom();
                 break;
 
             default:

@@ -9,6 +9,7 @@ var PlayerStore = require('../stores/player-store');
 
 var currentTracks = [];
 var currentPlayingTrack = null;
+var alreadyShuffledTracks = [];
 
 function getCurrentTrackIndex() {
     return _.findIndex(currentTracks, function (track) {
@@ -26,16 +27,24 @@ function getPreviousTrack() {
     return currentTracks[getCurrentTrackIndex() - 1] || null;
 }
 
-function getRandomTrack() {
-    return currentTracks[Math.floor(Math.random() * currentTracks.length)];
+function getOnlyUnplayedTracks() {
+    return _.filter(currentTracks, function (track) {
+        return !_.contains(alreadyShuffledTracks, track.id);
+    });
 }
 
-function setTrackPossiblyRandom(track) {
-    if (!PlayerStore.getShuffleState()) {
-        currentPlayingTrack = track;
-    } else {
-        currentPlayingTrack = getRandomTrack();
-    }
+function getRandomTrack() {
+
+    var unplayedTracks = getOnlyUnplayedTracks();
+
+    if (!unplayedTracks.length) return null;
+
+    var randomTrack = _.sample(unplayedTracks);
+
+    alreadyShuffledTracks.push(randomTrack.id);
+
+    return randomTrack;
+
 }
 
 var TracksStore = merge(BaseStore, {
@@ -56,17 +65,29 @@ var TracksStore = merge(BaseStore, {
         switch (action.actionType) {
 
             case AppConstants.SET_TRACKS:
+
                 currentTracks = action.tracks;
-                setTrackPossiblyRandom(currentTracks[0]);
+                alreadyShuffledTracks = [];
+
+                if (PlayerStore.getShuffleState()) {
+                    currentPlayingTrack = getRandomTrack();
+                } else {
+                    currentPlayingTrack = currentTracks[0];
+                }
+
                 PlayerActions.playSong();
+
                 break;
 
             case AppConstants.SET_CURRENT_TRACK:
+                alreadyShuffledTracks = [];
                 currentPlayingTrack = action.track;
                 PlayerActions.playSong();
                 break;
 
             case AppConstants.SET_CURRENT_TRACK_NEXT:
+
+                alreadyShuffledTracks = [];
 
                 var nextTrack = getNextTrack();
 
@@ -82,6 +103,8 @@ var TracksStore = merge(BaseStore, {
 
             case AppConstants.SET_CURRENT_TRACK_PREV:
 
+                alreadyShuffledTracks = [];
+
                 var prevTrack = getPreviousTrack();
 
                 if (prevTrack) {
@@ -95,8 +118,17 @@ var TracksStore = merge(BaseStore, {
                 break;
 
             case AppConstants.SET_CURRENT_TRACK_RANDOM:
-                currentPlayingTrack = getRandomTrack();
-                PlayerActions.playSong();
+
+                var randomTrack = getRandomTrack();
+
+                if (randomTrack) {
+                    currentPlayingTrack = randomTrack;
+                    PlayerActions.playSong();
+                } else {
+                    currentPlayingTrack = null;
+                    PlayerActions.pauseSong();
+                }
+
                 break;
 
             default:
