@@ -1,5 +1,6 @@
-var React = require('react');
+var React = require('react/addons');
 var PlayerActions = require('../../actions/player-actions');
+var cx = React.addons.classSet;
 
 module.exports = React.createClass({
     handleClick: function () {
@@ -10,9 +11,12 @@ module.exports = React.createClass({
         }
     },
     getClassName: function () {
-        var c = "pause-play-button fa ";
-        c += this.props.playing ? "fa-pause" : "fa-play";
-        return c;
+        return cx({
+            'pause-play-button': true,
+            'fa': true,
+            'fa-pause': this.props.playing,
+            'fa-play': !this.props.playing
+        });
     },
     render: function () {
         return (

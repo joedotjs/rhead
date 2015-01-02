@@ -1,14 +1,16 @@
-var React = require('react');
+var React = require('react/addons');
 var TracksActions = require('../../actions/tracks-actions');
+var cx = React.addons.classSet;
 
 module.exports = React.createClass({
     handleClick: function () {
         TracksActions.setCurrentTrack(this.props.track);
     },
     getClassName: function () {
-        var c = 'track';
-        c += this.props.current ? ' current' : '';
-        return c;
+        return cx({
+            'track': true,
+            'current': this.props.current
+        });
     },
     render: function () {
         return (

@@ -14,22 +14,22 @@ var listenMixin = StoreListenMixin(
 );
 
 module.exports = React.createClass({
+
     mixins: [listenMixin],
+
     formAlbum: function (album, i) {
         var selected = this.state.selectedAlbum ? this.state.selectedAlbum.id === album.id : false;
         return (
             <Album album={album} current={selected} key={i} />
         );
     },
+
     render: function () {
-
-        var albums = this.state.albums.map(this.formAlbum);
-
         return (
             <div id="album-list">
-                {albums}
+                {this.state.albums.map(this.formAlbum)}
             </div>
         );
-
     }
+
 });

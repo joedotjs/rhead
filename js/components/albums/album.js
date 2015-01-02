@@ -1,5 +1,6 @@
 var React = require('react/addons');
 var AlbumActions = require('../../actions/album-actions');
+var cx = React.addons.classSet;
 
 module.exports = React.createClass({
 
@@ -8,7 +9,7 @@ module.exports = React.createClass({
     },
 
     getClassName: function () {
-        return React.addons.classSet({
+        return cx({
             'album': true,
             'current': this.props.current
         });
