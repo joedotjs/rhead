@@ -5,7 +5,7 @@ var StoreListenMixin = require('../../mixins/StoreListen');
 
 var listenMixin = StoreListenMixin(
     [AlbumStore],
-    function () {
+    () => {
         return {
             albums: AlbumStore.getAlbums(),
             selectedAlbum: AlbumStore.getSelectedAlbum()
@@ -17,21 +17,17 @@ module.exports = React.createClass({
 
     mixins: [listenMixin],
 
-    formAlbum: function (album, i) {
+    formAlbum(album, i) {
         var current = this.state.selectedAlbum ? this.state.selectedAlbum.id === album.id : false;
-        return (
-            <Album album={album} current={current} key={i} />
-        );
+        return <Album album={album} current={current} key={i} />;
     },
 
-    render: function () {
-
+    render() {
         return (
             <div id="album-list">
                 {this.state.albums.map(this.formAlbum)}
             </div>
         );
-
     }
 
 });

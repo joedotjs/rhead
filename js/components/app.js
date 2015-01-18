@@ -8,6 +8,7 @@ var PlayerActions = require('../actions/player-actions');
 var TracksActions = require('../actions/tracks-actions');
 
 module.exports = React.createClass({
+
     componentDidMount: function () {
         window.addEventListener('keydown', function (e) {
             if (e.keyCode === 13) PlayerActions.togglePlaying();
@@ -15,6 +16,7 @@ module.exports = React.createClass({
             if (e.keyCode === 39) TracksActions.setCurrentTrackNext();
         });
     },
+
     render: function () {
         return (
             <div>
@@ -26,4 +28,5 @@ module.exports = React.createClass({
             </div>
         );
     }
+
 });

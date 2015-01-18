@@ -7,18 +7,17 @@ var TracksActions = require('../actions/tracks-actions');
 var playing = false;
 var shuffle = false;
 
-
 var PlayerStore = merge(BaseStore, {
 
-    getPlayingState: function () {
+    getPlayingState() {
         return playing;
     },
 
-    getShuffleState: function () {
+    getShuffleState() {
       return shuffle;
     },
 
-    dispatcherIndex: AppDispatcher.register(function (payload) {
+    dispatcherIndex: AppDispatcher.register(payload => {
 
         var action = payload.action;
         var changed = true;

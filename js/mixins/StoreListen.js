@@ -1,21 +1,15 @@
 module.exports = function (stores, getStateFn) {
     return {
-        componentWillMount: function () {
-            var self = this;
-            stores.forEach(function (store) {
-                store.addChangeListener(self.onChange);
-            });
+        componentWillMount() {
+            stores.forEach(store => store.addChangeListener(this.onChange));
         },
-        componentWillUnmount: function () {
-            var self = this;
-           stores.forEach(function (store) {
-                store.removeChangeListener(self.onChange);
-            });
+        componentWillUnmount() {
+           stores.forEach(store => store.removeChangeListener(this.onChange));
         },
-        onChange: function () {
+        onChange() {
             this.setState(getStateFn());
         },
-        getInitialState: function () {
+        getInitialState() {
             return getStateFn();
         }
     };

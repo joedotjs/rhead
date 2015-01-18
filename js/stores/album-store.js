@@ -21,15 +21,15 @@ var selectedAlbum = null;
 
 var AlbumStore = merge(BaseStore, {
 
-    getAlbums: function () {
+    getAlbums() {
         return albums;
     },
 
-    getSelectedAlbum: function () {
+    getSelectedAlbum() {
         return _.find(albums, { id: selectedAlbum }) || null;
     },
 
-    dispatcherIndex: AppDispatcher.register(function (payload) {
+    dispatcherIndex: AppDispatcher.register(payload => {
 
         var action = payload.action;
         var changed = true;
@@ -48,8 +48,6 @@ var AlbumStore = merge(BaseStore, {
         }
 
         if (changed) AlbumStore.emitChange();
-
-        return true;
 
     })
 

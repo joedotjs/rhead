@@ -4,18 +4,20 @@ var cx = React.addons.classSet;
 
 module.exports = React.createClass({
 
-    handleClick: function () {
-        if (!this.props.current) AlbumActions.setAlbum(this.props.album);
+    handleClick() {
+        if (!this.props.current) {
+            AlbumActions.setAlbum(this.props.album);
+        }
     },
 
-    getClassName: function () {
+    getClassName() {
         return cx({
             'album': true,
             'current': this.props.current
         });
     },
 
-    render: function () {
+    render() {
         return (
             <div onClick={this.handleClick} className={this.getClassName()}>
                 <img src={this.props.album.image} />

@@ -3,7 +3,7 @@ var AppDispatcher = require('../dispatchers/app-dispatcher');
 
 module.exports = {
 
-    setAlbum: function (album) {
+    setAlbum(album) {
         AppDispatcher.handleViewAction({
             actionType: AppConstants.SET_ALBUM,
             album: album

@@ -22,24 +22,24 @@ module.exports = React.createClass({
 
     mixins: [listenMixin],
 
-    isCurrentTrack: function (track) {
+    isCurrentTrack(track) {
         if (!this.state.currentTrack) return false;
         return this.state.currentTrack.id === track.id;
     },
 
-    formTrack: function (track, i) {
+    formTrack(track, i) {
         var isCurrent = this.isCurrentTrack(track);
         return (
             <Track key={i} trackNumber={i + 1} track={track} current={isCurrent} />
         );
     },
 
-    getAlbumImage: function () {
+    getAlbumImage() {
         if (!this.state.currentAlbum) return null;
         return "url('" + this.state.currentAlbum.image + "')";
     },
 
-    render: function () {
+    render() {
         return (
             <div id="track-listing" style={{ backgroundImage: this.getAlbumImage() }}>
                 {this.state.tracks.map(this.formTrack)}

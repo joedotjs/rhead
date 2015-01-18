@@ -12,9 +12,7 @@ var currentPlayingTrack = null;
 var alreadyShuffledTracks = [];
 
 function getCurrentTrackIndex() {
-    return _.findIndex(currentTracks, function (track) {
-        return track.id === currentPlayingTrack.id;
-    });
+    return _.findIndex(currentTracks, track => track.id === currentPlayingTrack.id);
 }
 
 function getNextTrack() {
@@ -28,16 +26,13 @@ function getPreviousTrack() {
 }
 
 function getOnlyUnplayedTracks() {
-    return _.filter(currentTracks, function (track) {
-        return !_.contains(alreadyShuffledTracks, track.id);
-    });
+    return _.filter(currentTracks, track => !_.contains(alreadyShuffledTracks, track.id));
 }
 
 function getPreviousRandomTrack() {
     if (alreadyShuffledTracks.length < 2) return null;
     alreadyShuffledTracks.pop();
-    var lastTrackId = _.last(alreadyShuffledTracks);
-    return _.find(currentTracks, { id: lastTrackId });
+    return _.find(currentTracks, { id: _.last(alreadyShuffledTracks).id });
 }
 
 function getRandomTrack() {
@@ -70,15 +65,15 @@ function resetShuffledSongs() {
 
 var TracksStore = merge(BaseStore, {
 
-    getTracks: function () {
+    getTracks() {
         return currentTracks;
     },
 
-    getCurrentTrack: function () {
+    getCurrentTrack() {
         return currentPlayingTrack;
     },
 
-    dispatcherIndex: AppDispatcher.register(function (payload) {
+    dispatcherIndex: AppDispatcher.register(payload => {
 
         var action = payload.action;
         var changed = true;

@@ -2,24 +2,26 @@ var AppConstants = require('../constants/app-constants');
 var AppDispatcher = require('../dispatchers/app-dispatcher');
 var _ = require('lodash');
 
+var dispatch = AppDispatcher.handleViewAction.bind(AppDispatcher);
+
 module.exports = {
-    playSong: function () {
-        AppDispatcher.handleViewAction({
+    playSong() {
+        dispatch({
            actionType: AppConstants.PLAY_TRACK
         });
     },
-    pauseSong: function () {
-        AppDispatcher.handleViewAction({
+    pauseSong() {
+        dispatch({
             actionType: AppConstants.PAUSE_TRACK
         });
     },
-    togglePlaying: function () {
-        AppDispatcher.handleViewAction({
+    togglePlaying() {
+        dispatch({
             actionType: AppConstants.TOGGLE_PLAY
         });
     },
-    setShuffle: function (shuffleOn) {
-        AppDispatcher.handleViewAction({
+    setShuffle(shuffleOn) {
+        dispatch({
             actionType: AppConstants.SET_SHUFFLE,
             onState: shuffleOn
         });

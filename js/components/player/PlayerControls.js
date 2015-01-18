@@ -10,9 +10,9 @@ module.exports = React.createClass({
         return (
             <div id="player-controls">
                 <PrevTrackButton />
-                <PauseAndPlayButton playing={this.props.playing} />
+                <PauseAndPlayButton />
                 <NextTrackButton />
-                <Shuffle shuffle={this.props.shuffle} />
+                <Shuffle />
             </div>
         );
     }

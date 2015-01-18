@@ -1,19 +1,35 @@
 var React = require('react/addons');
 var PlayerActions = require('../../actions/player-actions');
+var PlayerStore = require('../../stores/player-store');
+var StoreListener = require('../../mixins/StoreListen');
 var cx = React.addons.classSet;
 
+var listenerMixin = StoreListener(
+    [PlayerStore],
+    () => {
+        return {
+          shuffle: PlayerStore.getShuffleState()
+        };
+    }
+);
+
 module.exports = React.createClass({
-    handleClick: function () {
-        PlayerActions.setShuffle(!this.props.shuffle);
+
+    mixins: [listenerMixin],
+
+    handleClick() {
+        PlayerActions.setShuffle(!this.state.shuffle);
     },
-    getClassName: function () {
+
+    getClassName() {
         return cx({
             'fa': true,
             'fa-random': true,
-            'shuffle-on': this.props.shuffle
+            'shuffle-on': this.state.shuffle
         });
     },
-    render: function () {
+
+    render() {
         return (
             <i
                 id="shuffle-button"
@@ -21,4 +37,5 @@ module.exports = React.createClass({
                 className={this.getClassName()} />
         );
     }
+
 });

@@ -3,16 +3,16 @@ var TracksActions = require('../../actions/tracks-actions');
 var cx = React.addons.classSet;
 
 module.exports = React.createClass({
-    handleClick: function () {
+    handleClick() {
         TracksActions.setCurrentTrack(this.props.track);
     },
-    getClassName: function () {
+    getClassName() {
         return cx({
             'track': true,
             'current': this.props.current
         });
     },
-    render: function () {
+    render() {
         return (
             <div className={this.getClassName()} onClick={this.handleClick}>
                 <span className="track-number">{this.props.trackNumber.toString()}.</span>
