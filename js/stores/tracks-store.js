@@ -30,9 +30,15 @@ function getOnlyUnplayedTracks() {
 }
 
 function getPreviousRandomTrack() {
-    if (alreadyShuffledTracks.length < 2) return null;
+
+    if (alreadyShuffledTracks.length < 2) {
+        return null;
+    }
+
     alreadyShuffledTracks.pop();
-    return _.find(currentTracks, { id: _.last(alreadyShuffledTracks).id });
+
+    return _.find(currentTracks, { id: _.last(alreadyShuffledTracks) });
+
 }
 
 function getRandomTrack() {
@@ -120,6 +126,7 @@ var TracksStore = merge(BaseStore, {
                     setPlayingTrackTo(getPreviousTrack());
                 } else {
                     var previousRandomTrack = getPreviousRandomTrack();
+                    console.log(previousRandomTrack);
                     if (previousRandomTrack) setPlayingTrackTo(previousRandomTrack);
                 }
 

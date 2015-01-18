@@ -7,6 +7,7 @@ var StoreListenMixin = require('../../mixins/StoreListen');
 
 var TrackInfo = require('./TrackInfo');
 var PlayerControls = require('./PlayerControls');
+var PlayerTime = require('./PlayerTime');
 
 var storeMixin = StoreListenMixin(
     [TracksStore, PlayerStore],
@@ -18,6 +19,8 @@ var storeMixin = StoreListenMixin(
     }
 );
 
+var c = console.log.bind(console);
+
 module.exports = React.createClass({
 
     mixins: [storeMixin],
@@ -26,9 +29,33 @@ module.exports = React.createClass({
         TracksActions.setCurrentTrackNext();
     },
 
+    setPlayerTime() {
+
+        var t = Math.floor(this.audioElement.currentTime);
+
+        if (t !== this.state.currentTime) {
+            this.setState({
+                currentTime: t
+            });
+        }
+
+    },
+
+    setPlayerTotalTime() {
+        this.setState({
+            currentTime: 0,
+            totalTime: Math.floor(this.audioElement.duration)
+        });
+    },
+
     componentDidMount() {
+
         this.audioElement = this.refs.audio.getDOMNode();
+
         this.audioElement.addEventListener('ended', this.setNewTrack);
+        this.audioElement.addEventListener('timeupdate', this.setPlayerTime);
+        this.audioElement.addEventListener('durationchange', this.setPlayerTotalTime);
+
     },
 
     componentDidUpdate() {
@@ -48,6 +75,7 @@ module.exports = React.createClass({
                 <TrackInfo />
                 <PlayerControls />
                 <audio ref="audio" src={songFile}></audio>
+                <PlayerTime current={this.state.currentTime} total={this.state.totalTime} />
             </div>
         );
 
